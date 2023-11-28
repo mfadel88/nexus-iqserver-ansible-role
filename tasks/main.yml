@@ -20,12 +20,14 @@
 - name: Download nexus-iq-server version 1.100.0-01
   get_url:
     url: https://sonatype-download.global.ssl.fastly.net/repository/downloads-prod-group/server/nexus-iq-server-1.100.0-01-bundle.tar.gz
-    dest: /opt/nexus-iq-server/latest.tar.gz
+    # url: https://download.sonatype.com/clm/server/latest.tar.gz
+    # url: https://sonatype-download.global.ssl.fastly.net/repository/downloads-prod-group/server/nexus-iq-server-1.100.0-01-bundle.tar.gz
+    dest: /server/nexus-iq-server/latest.tar.gz
 
 - name: Unarchive nexus-iq-server package
   unarchive:
-    src: /opt/nexus-iq-server/latest.tar.gz
-    dest: /opt/nexus-iq-server
+    src: /server/nexus-iq-server/latest.tar.gz
+    dest: /server/nexus-iq-server
     owner: "{{ iqserver_user }}"
     group: "{{ iqserver_user }}"
     remote_src: yes
@@ -33,7 +35,7 @@
 
 - name: ensure that the repodata dir exists
   file:
-    dest: "/opt/sonatype-work/clm-server"
+    dest: "/server/sonatype-work/clm-server"
     owner: "{{ iqserver_user }}"
     group: "{{ iqserver_user }}"
     mode: "0750"
@@ -42,7 +44,7 @@
 - name: Copy a nexus-iq-server license
   copy:
     src: "{{ iqserver_license_path }}"
-    dest: "/opt/sonatype-work/clm-server/license.lic"
+    dest: "/server/sonatype-work/clm-server/license.lic"
     owner: "{{ iqserver_user }}"
     group: "{{ iqserver_user }}"
   
