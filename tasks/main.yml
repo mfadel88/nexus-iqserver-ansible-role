@@ -41,12 +41,12 @@
     mode: "0750"
     state: directory
 
-- name: Copy a nexus-iq-server license
-  copy:
-    src: "{{ iqserver_license_path }}"
-    dest: "/server/sonatype-work/clm-server/license.lic"
-    owner: "{{ iqserver_user }}"
-    group: "{{ iqserver_user }}"
+# - name: Copy a nexus-iq-server license
+#   copy:
+#     src: "{{ iqserver_license_path }}"
+#     dest: "/server/sonatype-work/clm-server/license.lic"
+#     owner: "{{ iqserver_user }}"
+#     group: "{{ iqserver_user }}"
   
 - name: put nexus-iq-server init.d script
   template:
