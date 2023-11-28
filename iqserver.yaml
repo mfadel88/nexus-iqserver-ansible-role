@@ -2,4 +2,4 @@
 - hosts: nexus-iqserver
   become: yes
   roles:
-    - nexus-iq-server-ansible-role
+    - nexus-iqserver-ansible-role
